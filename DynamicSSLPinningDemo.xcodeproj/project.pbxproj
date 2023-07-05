@@ -13,6 +13,7 @@
 		6EACEA642A556B6A000722C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EACEA622A556B6A000722C7 /* Main.storyboard */; };
 		6EACEA662A556B6E000722C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EACEA652A556B6E000722C7 /* Assets.xcassets */; };
 		6EACEA692A556B6E000722C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EACEA672A556B6E000722C7 /* LaunchScreen.storyboard */; };
+		6EACEA732A556C21000722C7 /* DynamicSSLPin in Frameworks */ = {isa = PBXBuildFile; productRef = 6EACEA722A556C21000722C7 /* DynamicSSLPin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6EACEA652A556B6E000722C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EACEA682A556B6E000722C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EACEA6A2A556B6E000722C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EACEA702A556C0E000722C7 /* DynamicSSLPin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DynamicSSLPin; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EACEA732A556C21000722C7 /* DynamicSSLPin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +43,10 @@
 		6EACEA502A556B6A000722C7 = {
 			isa = PBXGroup;
 			children = (
+				6EACEA702A556C0E000722C7 /* DynamicSSLPin */,
 				6EACEA5B2A556B6A000722C7 /* DynamicSSLPinningDemo */,
 				6EACEA5A2A556B6A000722C7 /* Products */,
+				6EACEA712A556C21000722C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,13 @@
 			path = DynamicSSLPinningDemo;
 			sourceTree = "<group>";
 		};
+		6EACEA712A556C21000722C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +95,9 @@
 			dependencies = (
 			);
 			name = DynamicSSLPinningDemo;
+			packageProductDependencies = (
+				6EACEA722A556C21000722C7 /* DynamicSSLPin */,
+			);
 			productName = DynamicSSLPinningDemo;
 			productReference = 6EACEA592A556B6A000722C7 /* DynamicSSLPinningDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -358,6 +373,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6EACEA722A556C21000722C7 /* DynamicSSLPin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DynamicSSLPin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6EACEA512A556B6A000722C7 /* Project object */;
 }
