@@ -13,4 +13,5 @@ public enum HandshakeResult: Int {
     case INVALID_URL = 2
     case INVALID_SIGNATURE = 3
     case INVALID_DATA = 4
+    case NETWORK_ERROR = 5
 }

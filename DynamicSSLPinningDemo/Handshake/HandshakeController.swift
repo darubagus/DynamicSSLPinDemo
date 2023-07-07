@@ -22,5 +22,14 @@ public class HandshakeController: NSObject {
         let configuration = CertStoreConfig(serviceURL: url, pubKey: pubKey)
         certStore = CertStore.integrateCertStore(configuration: configuration)
         
+        certStore?.update { (result, error) in
+            switch result {
+            case .ok: self.handshakeListener?.onResult(HandshakeResult.OK)
+            case .emptyStore: self.handshakeListener?.onResult(HandshakeResult.EMPTY_STORE)
+            case .invalidSignature: self.handshakeListener?.onResult(HandshakeResult.INVALID_SIGNATURE)
+            case .invalidData: self.handshakeListener?.onResult(HandshakeResult.INVALID_DATA)
+            case .networkError: self.handshakeListener?.onResult(HandshakeResult.NETWORK_ERROR)
+            }
+        }
     }
 }
