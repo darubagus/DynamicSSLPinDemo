@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>SERVICE_URL</key>
-	<string>https://api.openweathermap.org/data/2.5/weather</string>
+	<string>https://github.com</string>
 	<key>PUBLIC_KEY</key>
-	<string></string>
+	<string>OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -13,21 +13,38 @@ class ViewController: UIViewController {
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet var updateFingerprintLabel: UILabel!
     
-    var service_url: String! = Bundle.main.infoDictionary!["SERVICE_URL"] as? String
+    private let serviceURL: String! = Bundle.main.infoDictionary!["SERVICE_URL"] as? String
+    private let publicKey = Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String
+    private var handShake = HandshakeController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWeatherData()
+//        getWeatherData()
         // Do any additional setup after loading the view.
     }
 
     fileprivate func printData() {
-        print(service_url ?? "nothing")
+        print(serviceURL ?? "nothing")
+    }
+    
+    @IBAction func onFingerprintUpdate(_ trigger: UIButton){
+        handShake.renewFingerprint(publicKey, serviceURL)
+    }
+    
+    func onResult(_ result: HandshakeResult) {
+        switch result {
+        case .OK: print("Everything is alright")
+        case .EMPTY_STORE: print("Store is empty")
+        case .NETWORK_ERROR: print("Network Error, failed communication")
+        case .INVALID_DATA: print("Data did not pass signature validation")
+        case .INVALID_SIGNATURE: print("Data did not pass signature validation")
+        case .INVALID_URL: print("URL invalid or does not exist")
+        }
     }
     
     fileprivate func getWeatherData() {
         
-        var url = URL.init(string: service_url)
+        var url = URL.init(string: serviceURL)
         
         let queryItems = [
             URLQueryItem.init(name: "lat", value: "-6.2944"),
