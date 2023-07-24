@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E9B36892A6254680033CF1D /* DynamicSSLPin in Frameworks */ = {isa = PBXBuildFile; productRef = 6E9B36882A6254680033CF1D /* DynamicSSLPin */; };
 		6EACEA5D2A556B6A000722C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EACEA5C2A556B6A000722C7 /* AppDelegate.swift */; };
 		6EACEA5F2A556B6A000722C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EACEA5E2A556B6A000722C7 /* SceneDelegate.swift */; };
 		6EACEA612A556B6A000722C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EACEA602A556B6A000722C7 /* ViewController.swift */; };
 		6EACEA642A556B6A000722C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EACEA622A556B6A000722C7 /* Main.storyboard */; };
 		6EACEA662A556B6E000722C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EACEA652A556B6E000722C7 /* Assets.xcassets */; };
 		6EACEA692A556B6E000722C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EACEA672A556B6E000722C7 /* LaunchScreen.storyboard */; };
-		6EACEA732A556C21000722C7 /* DynamicSSLPin in Frameworks */ = {isa = PBXBuildFile; productRef = 6EACEA722A556C21000722C7 /* DynamicSSLPin */; };
 		6EACEA762A556E5E000722C7 /* HandshakeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EACEA752A556E5E000722C7 /* HandshakeResult.swift */; };
 		6EACEA782A556F06000722C7 /* HandshakeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EACEA772A556F06000722C7 /* HandshakeListener.swift */; };
 		6EACEA7A2A556F48000722C7 /* HandshakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EACEA792A556F48000722C7 /* HandshakeController.swift */; };
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EACEA732A556C21000722C7 /* DynamicSSLPin in Frameworks */,
+				6E9B36892A6254680033CF1D /* DynamicSSLPin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +119,7 @@
 			);
 			name = DynamicSSLPinningDemo;
 			packageProductDependencies = (
-				6EACEA722A556C21000722C7 /* DynamicSSLPin */,
+				6E9B36882A6254680033CF1D /* DynamicSSLPin */,
 			);
 			productName = DynamicSSLPinningDemo;
 			productReference = 6EACEA592A556B6A000722C7 /* DynamicSSLPinningDemo.app */;
@@ -403,7 +403,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6EACEA722A556C21000722C7 /* DynamicSSLPin */ = {
+		6E9B36882A6254680033CF1D /* DynamicSSLPin */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DynamicSSLPin;
 		};

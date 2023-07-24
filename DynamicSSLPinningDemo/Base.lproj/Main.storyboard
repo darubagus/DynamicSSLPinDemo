@@ -63,7 +63,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Update Fingerprint"/>
                                         <connections>
-                                            <action selector="onFingerprintUpdate:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="SrT-fh-FIG"/>
+                                            <action selector="onFingerprintUpdate:" destination="BYZ-38-t0r" eventType="touchDown" id="A03-7u-azr"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-DG-r3T" userLabel="PinningToggleStackView">

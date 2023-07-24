@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>SERVICE_URL</key>
-	<string>https://github.com</string>
+	<string>https://my-json-server.typicode.com/darubagus/fingerprints-api/db</string>
 	<key>PUBLIC_KEY</key>
-	<string>OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb</string>
+	<string>IHnQgaEcAHC4lYhwOiBIDsOGoTspFli0WJQTcqIoMqOzh3GsfKXru2FHtYjmMXNP</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
