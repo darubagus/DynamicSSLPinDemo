@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  SSLPinningDemo
+//  DynamicSSLPinningDemo
 //
-//  Created by Daru Bagus Dananjaya on 29/07/23.
+//  Created by Daru Bagus Dananjaya on 05/07/23.
 //
 
 import UIKit

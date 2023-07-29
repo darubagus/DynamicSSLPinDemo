@@ -1,19 +1,87 @@
 //
 //  ViewController.swift
-//  SSLPinningDemo
+//  DynamicSSLPinningDemo
 //
-//  Created by Daru Bagus Dananjaya on 29/07/23.
+//  Created by Daru Bagus Dananjaya on 05/07/23.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var maxTempLabel: UILabel!
+    @IBOutlet weak var minTempLabel: UILabel!
+    @IBOutlet var updateFingerprintLabel: UILabel!
+    
+    private let serviceURL: String! = Bundle.main.infoDictionary!["SERVICE_URL"] as? String
+    private let publicKey = Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String
+    private var handShake = HandshakeController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        getWeatherData()
         // Do any additional setup after loading the view.
     }
 
-
+    fileprivate func printData() {
+        print(serviceURL ?? "nothing")
+    }
+    
+    @IBAction func onFingerprintUpdate(_ trigger: UIButton){
+        handShake.renewFingerprint(publicKey, serviceURL)
+    }
+    
+    func onResult(_ result: HandshakeResult) {
+        switch result {
+        case .OK: print("Everything is alright")
+        case .EMPTY_STORE: print("Store is empty")
+        case .NETWORK_ERROR: print("Network Error, failed communication")
+        case .INVALID_DATA: print("Data did not pass signature validation")
+        case .INVALID_SIGNATURE: print("Data did not pass signature validation")
+        case .INVALID_URL: print("URL invalid or does not exist")
+        }
+    }
+    
+    fileprivate func getWeatherData() {
+        
+        var url = URL.init(string: serviceURL)
+        
+        let queryItems = [
+            URLQueryItem.init(name: "lat", value: "-6.2944"),
+            URLQueryItem.init(name: "lon", value: "106.7857"),
+            URLQueryItem.init(name: "units", value: "metric"),
+            URLQueryItem.init(name: "appid", value: "cc3f0108e08711cb126c71d1c83a8aaf"),
+        ]
+        
+        if #available(iOS 16.0, *) {
+            url?.append(queryItems: queryItems)
+        } else {
+            // Fallback on earlier versions
+            var components = URLComponents.init(url: url!, resolvingAgainstBaseURL: false)
+            components?.queryItems = queryItems
+            url = components?.url
+        }
+        
+        RestAPI.common.request(url: url, expecting: WeatherResponse.self) { [weak self] data, error in
+            
+            if let error {
+                let alert = UIAlertController.init(title: error.localizedDescription, message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: .cancel))
+                DispatchQueue.main.async {
+                    self?.present(alert, animated: true)
+                }
+                print(error.localizedDescription)
+                return
+            }
+            
+            if let data {
+                DispatchQueue.main.async {
+                    self?.minTempLabel.text = "\(data.main.tempMin)"
+                    self?.maxTempLabel.text = "\(data.main.tempMax)"
+                }
+            }
+        }
+    }
+    
 }
 
