@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DynamicSSLPinningDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SSLPinningDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,47 +55,64 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab8-5V-mjL" userLabel="TopStackView">
-                                <rect key="frame" x="0.0" y="59" width="393" height="62"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ixl-KD-6HA" userLabel="MainTopStackView">
+                                <rect key="frame" x="16" y="75" width="361" height="96.333333333333314"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHL-dw-Ltg" userLabel="updateFingerprintButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="62"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Update Fingerprint"/>
-                                        <connections>
-                                            <action selector="onFingerprintUpdate:" destination="BYZ-38-t0r" eventType="touchDown" id="A03-7u-azr"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-DG-r3T" userLabel="PinningToggleStackView">
-                                        <rect key="frame" x="167.33333333333337" y="0.0" width="225.66666666666663" height="62"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab8-5V-mjL" userLabel="TopStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="62"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinning Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lx-M7-84w" userLabel="pinningToggleLabel">
-                                                <rect key="frame" x="57" y="0.0" width="112" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-ch-NeN" userLabel="pinningSwitch">
-                                                <rect key="frame" x="88.333333333333314" y="31" width="51" height="31"/>
-                                            </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHL-dw-Ltg" userLabel="updateFingerprintButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="62"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Update Fingerprint"/>
+                                                <connections>
+                                                    <action selector="onFingerprintUpdate:" destination="BYZ-38-t0r" eventType="touchDown" id="A03-7u-azr"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-DG-r3T" userLabel="PinningToggleStackView">
+                                                <rect key="frame" x="167.33333333333337" y="0.0" width="193.66666666666663" height="62"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinning Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lx-M7-84w" userLabel="pinningToggleLabel">
+                                                        <rect key="frame" x="41" y="0.0" width="112" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-ch-NeN" userLabel="pinningSwitch">
+                                                        <rect key="frame" x="72.333333333333314" y="31" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="switchDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="kzP-S8-npw"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b1-qD-Unv" userLabel="GetWeatherData">
+                                        <rect key="frame" x="0.0" y="62" width="361" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Get Weather Data"/>
+                                        <connections>
+                                            <action selector="onGetWeatherData:" destination="BYZ-38-t0r" eventType="touchDown" id="86K-bH-h2a"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ab8-5V-mjL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5ge-Hy-tid"/>
-                            <constraint firstItem="ab8-5V-mjL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ITS-cR-vRx"/>
+                            <constraint firstItem="Ixl-KD-6HA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="12Q-JX-hAl"/>
+                            <constraint firstItem="Ixl-KD-6HA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2qV-ld-2r2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ixl-KD-6HA" secondAttribute="trailing" constant="16" id="5Li-Wd-gMk"/>
                             <constraint firstItem="fw1-vc-wTK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZEl-JU-NPK"/>
                             <constraint firstItem="fw1-vc-wTK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kpm-Sp-0fM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ab8-5V-mjL" secondAttribute="trailing" id="xX6-mL-8QM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="maxTempLabel" destination="cuc-v3-7P3" id="Rg5-wQ-j9K"/>
                         <outlet property="minTempLabel" destination="lNY-Aw-zwg" id="kBI-eU-OAk"/>
+                        <outlet property="pinningSwitch" destination="Qc6-ch-NeN" id="djs-eJ-402"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

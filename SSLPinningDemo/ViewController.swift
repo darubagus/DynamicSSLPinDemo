@@ -6,20 +6,25 @@
 //
 
 import UIKit
+import SwiftUI
+import DynamicSSLPin
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet var updateFingerprintLabel: UILabel!
+    @IBOutlet weak var pinningSwitch: UISwitch!
     
-    private let serviceURL: String! = Bundle.main.infoDictionary!["SERVICE_URL"] as? String
-    private let publicKey = Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String
+    internal let serviceURL: String! = Bundle.main.infoDictionary!["SERVICE_URL"] as? String
+    internal let publicKey = Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String
+    
+    public var switchIsOn: Bool = true
     private var handShake = HandshakeController()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getWeatherData()
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +34,18 @@ class ViewController: UIViewController {
     
     @IBAction func onFingerprintUpdate(_ trigger: UIButton){
         handShake.renewFingerprint(publicKey, serviceURL)
+    }
+    
+    @IBAction func onGetWeatherData(_ trigger: UIButton) {
+        getWeatherData(switchIsOn: switchIsOn)
+    }
+    
+    @IBAction func switchDidChange(_ sender: UISwitch) {
+        if sender.isOn {
+            switchIsOn = true
+        } else {
+            switchIsOn = false
+        }
     }
     
     func onResult(_ result: HandshakeResult) {
@@ -42,9 +59,9 @@ class ViewController: UIViewController {
         }
     }
     
-    fileprivate func getWeatherData() {
+    public func getWeatherData(switchIsOn: Bool) {
         
-        var url = URL.init(string: serviceURL)
+        var url = URL.init(string: "https://api.openweathermap.org/data/2.5/weather")
         
         let queryItems = [
             URLQueryItem.init(name: "lat", value: "-6.2944"),
@@ -61,8 +78,10 @@ class ViewController: UIViewController {
             components?.queryItems = queryItems
             url = components?.url
         }
+        Debug.message("\(switchIsOn)")
+        let restAPI = RestAPI(isPinning: switchIsOn)
         
-        RestAPI.common.request(url: url, expecting: WeatherResponse.self) { [weak self] data, error in
+        restAPI.request(url: url, expecting: WeatherResponse.self) { [weak self] data, error in
             
             if let error {
                 let alert = UIAlertController.init(title: error.localizedDescription, message: "", preferredStyle: .alert)
