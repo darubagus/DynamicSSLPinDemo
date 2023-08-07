@@ -78,7 +78,7 @@ class ViewController: UIViewController {
             components?.queryItems = queryItems
             url = components?.url
         }
-        Debug.message("\(switchIsOn)")
+        
         let restAPI = RestAPI(isPinning: switchIsOn)
         
         restAPI.request(url: url, expecting: WeatherResponse.self) { [weak self] data, error in
