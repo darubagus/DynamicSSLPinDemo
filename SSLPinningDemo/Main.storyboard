@@ -88,14 +88,27 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b1-qD-Unv" userLabel="GetWeatherData">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkM-Db-h8r" userLabel="BottomStackView">
                                         <rect key="frame" x="0.0" y="62" width="361" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Get Weather Data"/>
-                                        <connections>
-                                            <action selector="onGetWeatherData:" destination="BYZ-38-t0r" eventType="touchDown" id="86K-bH-h2a"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b1-qD-Unv" userLabel="GetWeatherData">
+                                                <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Get Weather Data"/>
+                                                <connections>
+                                                    <action selector="onGetWeatherData:" destination="BYZ-38-t0r" eventType="touchDown" id="86K-bH-h2a"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvG-zl-5Gs" userLabel="ResetCache">
+                                                <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Reset Cache"/>
+                                                <connections>
+                                                    <action selector="onResetCache:" destination="BYZ-38-t0r" eventType="touchDown" id="TJP-Vt-MPP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -112,7 +125,6 @@
                     <connections>
                         <outlet property="maxTempLabel" destination="cuc-v3-7P3" id="Rg5-wQ-j9K"/>
                         <outlet property="minTempLabel" destination="lNY-Aw-zwg" id="kBI-eU-OAk"/>
-                        <outlet property="pinningSwitch" destination="Qc6-ch-NeN" id="djs-eJ-402"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

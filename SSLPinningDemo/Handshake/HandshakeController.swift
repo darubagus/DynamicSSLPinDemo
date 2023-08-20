@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import DynamicSSLPin
+import DynamicSSLPin_TA
 
 public class HandshakeController: NSObject {
     public var handshakeListener: HandshakeListener?
+    internal var certStore: CertStore? = nil
     
-    public func renewFingerprint(_ pubKey: String, _ serviceURL: String) {
-        var certStore: CertStore? = nil
+    public init(_ serviceURL: String, _ pubKey: String) {
         
         guard let url = URL(string: serviceURL) else {
             self.handshakeListener?.onResult(HandshakeResult.INVALID_URL)
@@ -21,10 +21,13 @@ public class HandshakeController: NSObject {
         
         let configuration = CertStoreConfig(serviceURL: url, pubKey: pubKey)
         certStore = CertStore.integrateCertStore(configuration: configuration)
+    }
+    
+    public func renewFingerprint() {
         
         // To reset data store every startup
         // DO NOT USE FOR PROD
-        certStore?.resetData()
+//        certStore?.resetData()
         
         certStore?.update { (result, error) in
             switch result {

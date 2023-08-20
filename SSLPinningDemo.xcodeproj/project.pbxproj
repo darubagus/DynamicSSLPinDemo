@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6EABFE6E2A7F877B00D1F6CD /* HandshakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABFE6B2A7F877A00D1F6CD /* HandshakeController.swift */; };
-		6EABFE6F2A7F877B00D1F6CD /* HandshakeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABFE6C2A7F877A00D1F6CD /* HandshakeListener.swift */; };
-		6EABFE702A7F877B00D1F6CD /* HandshakeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABFE6D2A7F877B00D1F6CD /* HandshakeResult.swift */; };
 		6ED6492A2A75728A00E57198 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6491D2A75728400E57198 /* RestAPI.swift */; };
-		6ED6492B2A75728A00E57198 /* Handshake in Resources */ = {isa = PBXBuildFile; fileRef = 6ED6491E2A75728600E57198 /* Handshake */; };
 		6ED6492C2A75728A00E57198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6491F2A75728700E57198 /* ViewController.swift */; };
 		6ED6492D2A75728A00E57198 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED649202A75728700E57198 /* SceneDelegate.swift */; };
 		6ED6492F2A75728A00E57198 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED649222A75728900E57198 /* WeatherResponse.swift */; };
@@ -19,18 +15,32 @@
 		6ED649312A75728A00E57198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED649242A75728A00E57198 /* Main.storyboard */; };
 		6ED649322A75728A00E57198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED649252A75728A00E57198 /* AppDelegate.swift */; };
 		6ED649332A75728A00E57198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED649262A75728A00E57198 /* Assets.xcassets */; };
-		6ED6493B2A757E5200E57198 /* DynamicSSLPin in Frameworks */ = {isa = PBXBuildFile; productRef = 6ED6493A2A757E5200E57198 /* DynamicSSLPin */; };
+		6EF3F8EF2A908971004EC061 /* DynamicSSLPin_TA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF3F8EE2A908971004EC061 /* DynamicSSLPin_TA.framework */; };
+		6EF3F8F02A908971004EC061 /* DynamicSSLPin_TA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF3F8EE2A908971004EC061 /* DynamicSSLPin_TA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6EF3F9172A9208E9004EC061 /* HandshakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3F9142A9208E9004EC061 /* HandshakeController.swift */; };
+		6EF3F9182A9208E9004EC061 /* HandshakeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3F9152A9208E9004EC061 /* HandshakeResult.swift */; };
+		6EF3F9192A9208E9004EC061 /* HandshakeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3F9162A9208E9004EC061 /* HandshakeListener.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6EF3F8F12A908971004EC061 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6EF3F8F02A908971004EC061 /* DynamicSSLPin_TA.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		6EABFE6B2A7F877A00D1F6CD /* HandshakeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HandshakeController.swift; path = SSLPinningDemo/Handshake/HandshakeController.swift; sourceTree = "<group>"; };
-		6EABFE6C2A7F877A00D1F6CD /* HandshakeListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HandshakeListener.swift; path = SSLPinningDemo/Handshake/HandshakeListener.swift; sourceTree = "<group>"; };
-		6EABFE6D2A7F877B00D1F6CD /* HandshakeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HandshakeResult.swift; path = SSLPinningDemo/Handshake/HandshakeResult.swift; sourceTree = "<group>"; };
 		6ED649022A75724500E57198 /* SSLPinningDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSLPinningDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED649192A75728000E57198 /* SSLPinningDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSLPinningDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6ED6491C2A75728300E57198 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED6491D2A75728400E57198 /* RestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
-		6ED6491E2A75728600E57198 /* Handshake */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Handshake; sourceTree = "<group>"; };
 		6ED6491F2A75728700E57198 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6ED649202A75728700E57198 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6ED649222A75728900E57198 /* WeatherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
@@ -38,6 +48,10 @@
 		6ED649242A75728A00E57198 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6ED649252A75728A00E57198 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ED649262A75728A00E57198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6EF3F8EE2A908971004EC061 /* DynamicSSLPin_TA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicSSLPin_TA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EF3F9142A9208E9004EC061 /* HandshakeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeController.swift; sourceTree = "<group>"; };
+		6EF3F9152A9208E9004EC061 /* HandshakeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeResult.swift; sourceTree = "<group>"; };
+		6EF3F9162A9208E9004EC061 /* HandshakeListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ED6493B2A757E5200E57198 /* DynamicSSLPin in Frameworks */,
+				6EF3F8EF2A908971004EC061 /* DynamicSSLPin_TA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,9 +69,6 @@
 		6ED648F92A75724500E57198 = {
 			isa = PBXGroup;
 			children = (
-				6EABFE6B2A7F877A00D1F6CD /* HandshakeController.swift */,
-				6EABFE6C2A7F877A00D1F6CD /* HandshakeListener.swift */,
-				6EABFE6D2A7F877B00D1F6CD /* HandshakeResult.swift */,
 				6ED649042A75724500E57198 /* SSLPinningDemo */,
 				6ED649032A75724500E57198 /* Products */,
 				6ED649362A7572F700E57198 /* Frameworks */,
@@ -75,9 +86,9 @@
 		6ED649042A75724500E57198 /* SSLPinningDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6EF3F9132A9208DB004EC061 /* Handshake */,
 				6ED649252A75728A00E57198 /* AppDelegate.swift */,
 				6ED649262A75728A00E57198 /* Assets.xcassets */,
-				6ED6491E2A75728600E57198 /* Handshake */,
 				6ED6491C2A75728300E57198 /* Info.plist */,
 				6ED649232A75728900E57198 /* LaunchScreen.storyboard */,
 				6ED649242A75728A00E57198 /* Main.storyboard */,
@@ -93,8 +104,19 @@
 		6ED649362A7572F700E57198 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EF3F8EE2A908971004EC061 /* DynamicSSLPin_TA.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EF3F9132A9208DB004EC061 /* Handshake */ = {
+			isa = PBXGroup;
+			children = (
+				6EF3F9142A9208E9004EC061 /* HandshakeController.swift */,
+				6EF3F9162A9208E9004EC061 /* HandshakeListener.swift */,
+				6EF3F9152A9208E9004EC061 /* HandshakeResult.swift */,
+			);
+			path = Handshake;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +129,7 @@
 				6ED648FE2A75724500E57198 /* Sources */,
 				6ED648FF2A75724500E57198 /* Frameworks */,
 				6ED649002A75724500E57198 /* Resources */,
+				6EF3F8F12A908971004EC061 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,7 +137,6 @@
 			);
 			name = SSLPinningDemo;
 			packageProductDependencies = (
-				6ED6493A2A757E5200E57198 /* DynamicSSLPin */,
 			);
 			productName = SSLPinningDemo;
 			productReference = 6ED649022A75724500E57198 /* SSLPinningDemo.app */;
@@ -160,7 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ED649302A75728A00E57198 /* LaunchScreen.storyboard in Resources */,
-				6ED6492B2A75728A00E57198 /* Handshake in Resources */,
 				6ED649312A75728A00E57198 /* Main.storyboard in Resources */,
 				6ED649332A75728A00E57198 /* Assets.xcassets in Resources */,
 			);
@@ -174,12 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ED649322A75728A00E57198 /* AppDelegate.swift in Sources */,
-				6EABFE6E2A7F877B00D1F6CD /* HandshakeController.swift in Sources */,
+				6EF3F9182A9208E9004EC061 /* HandshakeResult.swift in Sources */,
+				6EF3F9192A9208E9004EC061 /* HandshakeListener.swift in Sources */,
 				6ED6492D2A75728A00E57198 /* SceneDelegate.swift in Sources */,
 				6ED6492A2A75728A00E57198 /* RestAPI.swift in Sources */,
+				6EF3F9172A9208E9004EC061 /* HandshakeController.swift in Sources */,
 				6ED6492F2A75728A00E57198 /* WeatherResponse.swift in Sources */,
-				6EABFE6F2A7F877B00D1F6CD /* HandshakeListener.swift in Sources */,
-				6EABFE702A7F877B00D1F6CD /* HandshakeResult.swift in Sources */,
 				6ED6492C2A75728A00E57198 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,13 +405,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6ED6493A2A757E5200E57198 /* DynamicSSLPin */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DynamicSSLPin;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6ED648FA2A75724500E57198 /* Project object */;
 }

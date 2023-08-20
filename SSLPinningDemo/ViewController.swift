@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftUI
-import DynamicSSLPin
+import DynamicSSLPin_TA
 
 class ViewController: UIViewController {
 
@@ -20,11 +20,12 @@ class ViewController: UIViewController {
     internal let publicKey = Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String
     
     public var switchIsOn: Bool = true
-    private var handShake = HandshakeController()
+    private var handShake = HandshakeController((Bundle.main.infoDictionary!["SERVICE_URL"] as? String)!, Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String)
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        handShake.renewFingerprint()
         // Do any additional setup after loading the view.
     }
 
@@ -33,7 +34,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onFingerprintUpdate(_ trigger: UIButton){
-        handShake.renewFingerprint(publicKey, serviceURL)
+        handShake.renewFingerprint()
+    }
+    
+    @IBAction func onResetCache(_ trigger: UIButton) {
+        handShake.certStore?.resetData()
+        handShake.certStore?.showAllCertificates()
     }
     
     @IBAction func onGetWeatherData(_ trigger: UIButton) {

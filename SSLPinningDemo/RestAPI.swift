@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import DynamicSSLPin
+import DynamicSSLPin_TA
 
 class RestAPI: NSObject {
 //    static let common = RestAPI()
@@ -23,18 +23,21 @@ class RestAPI: NSObject {
             let certStoreConfiguration = CertStoreConfig(serviceURL: url!, pubKey: Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String)
             let certStore = CertStore.integrateCertStore(configuration: certStoreConfiguration)
             
-            let sessionDelegate = TestingSessionDelegate { (challenge, callback) in
+            let sessionDelegate = SessionDelegate { (challenge, callback) in
                 let validationResult = certStore.validate(challenge: challenge)
                 switch validationResult {
                 case .trusted:
-                    callback(.useCredential, nil)
+                    callback(.performDefaultHandling, nil)
                 case .untrusted, .empty:
                     callback(.cancelAuthenticationChallenge, nil)
                 }
             }
             
+            Debug.message("Pinning on")
+
             session = URLSession.init(configuration: configuration, delegate: sessionDelegate, delegateQueue: nil)
         } else {
+            Debug.message("Pinning off")
             session = URLSession.init(configuration: configuration, delegate: nil, delegateQueue: nil)
         }
     }
@@ -76,15 +79,8 @@ class RestAPI: NSObject {
     }
 }
 
-class TestingSessionDelegate: NSObject, URLSessionDelegate {
+class SessionDelegate: NSObject, URLSessionDelegate {
     
-    struct Interceptor {
-        var called_didReceiveChallenge = 0
-        
-        static var clean: Interceptor { return Interceptor() }
-    }
-    
-    var interceptor = Interceptor()
     var onChallenge: (_ challenge: URLAuthenticationChallenge, _ completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) -> Void
     
     init(onChallenge: @escaping (_ challenge: URLAuthenticationChallenge, _ completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) -> Void) {
@@ -92,7 +88,6 @@ class TestingSessionDelegate: NSObject, URLSessionDelegate {
     }
     
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        self.interceptor.called_didReceiveChallenge += 1
         self.onChallenge(challenge, completionHandler)
     }
 }
