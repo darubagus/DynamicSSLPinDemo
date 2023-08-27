@@ -56,7 +56,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ixl-KD-6HA" userLabel="MainTopStackView">
-                                <rect key="frame" x="16" y="75" width="361" height="96.333333333333314"/>
+                                <rect key="frame" x="16" y="75.000000000000014" width="361" height="146.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab8-5V-mjL" userLabel="TopStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="62"/>
@@ -109,6 +109,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ke-Qp-lU9" userLabel="HandshakeResultLabel">
+                                        <rect key="frame" x="0.0" y="96.333333333333343" width="361" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -123,6 +129,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="handshakeResultLabel" destination="5Ke-Qp-lU9" id="Wmp-P6-FSW"/>
                         <outlet property="maxTempLabel" destination="cuc-v3-7P3" id="Rg5-wQ-j9K"/>
                         <outlet property="minTempLabel" destination="lNY-Aw-zwg" id="kBI-eU-OAk"/>
                     </connections>

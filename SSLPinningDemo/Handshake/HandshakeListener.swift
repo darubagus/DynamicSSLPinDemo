@@ -7,6 +7,7 @@
 
 import Foundation
 
-public protocol HandshakeListener: NSObject {
-    func onResult(_ handshake: HandshakeResult)
+public protocol HandshakeListener {
+    
+    func onResult(_ result: HandshakeResult)
 }

@@ -19,7 +19,9 @@ public class HandshakeController: NSObject {
             return
         }
         
-        let configuration = CertStoreConfig(serviceURL: url, pubKey: pubKey)
+        // Set update interval to two minutes
+        // Set expiration Threshold to 5 minutes
+        let configuration = CertStoreConfig(serviceURL: url, pubKey: pubKey, updateInterval: 0.5*60, expirationThreshold: 2*60)
         certStore = CertStore.integrateCertStore(configuration: configuration)
     }
     

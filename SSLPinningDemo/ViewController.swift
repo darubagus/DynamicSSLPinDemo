@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
-    @IBOutlet var updateFingerprintLabel: UILabel!
+    
+    @IBOutlet var handshakeResultLabel: UILabel!
+    
     @IBOutlet weak var pinningSwitch: UISwitch!
     
     internal let serviceURL: String! = Bundle.main.infoDictionary!["SERVICE_URL"] as? String
@@ -56,12 +58,12 @@ class ViewController: UIViewController {
     
     func onResult(_ result: HandshakeResult) {
         switch result {
-        case .OK: print("Everything is alright")
-        case .EMPTY_STORE: print("Store is empty")
-        case .NETWORK_ERROR: print("Network Error, failed communication")
-        case .INVALID_DATA: print("Data did not pass signature validation")
-        case .INVALID_SIGNATURE: print("Data did not pass signature validation")
-        case .INVALID_URL: print("URL invalid or does not exist")
+        case HandshakeResult.OK: self.handshakeResultLabel.text = "Everything is alright"
+        case HandshakeResult.EMPTY_STORE: self.handshakeResultLabel.text = "Store is empty"
+        case HandshakeResult.NETWORK_ERROR: self.handshakeResultLabel.text = "Network Error, failed communication"
+        case HandshakeResult.INVALID_DATA: self.handshakeResultLabel.text = "Data did not pass signature validation"
+        case HandshakeResult.INVALID_SIGNATURE: self.handshakeResultLabel.text = "Data did not pass signature validation"
+        case HandshakeResult.INVALID_URL: self.handshakeResultLabel.text = "URL invalid or does not exist"
         }
     }
     

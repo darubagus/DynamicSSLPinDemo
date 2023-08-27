@@ -9,7 +9,6 @@ import Foundation
 import DynamicSSLPin_TA
 
 class RestAPI: NSObject {
-//    static let common = RestAPI()
     
     var session: URLSession!
     
@@ -20,8 +19,10 @@ class RestAPI: NSObject {
         let url = URL(string: (Bundle.main.infoDictionary!["SERVICE_URL"] as? String)!)
         
         if isPinning {
+            
             let certStoreConfiguration = CertStoreConfig(serviceURL: url!, pubKey: Bundle.main.infoDictionary!["PUBLIC_KEY"] as! String)
             let certStore = CertStore.integrateCertStore(configuration: certStoreConfiguration)
+            
             
             let sessionDelegate = SessionDelegate { (challenge, callback) in
                 let validationResult = certStore.validate(challenge: challenge)
@@ -33,11 +34,11 @@ class RestAPI: NSObject {
                 }
             }
             
-            Debug.message("Pinning on")
-
+//            Debug.message("Pinning on")
+            certStore.logger.log("[REST API]: SSL Pinning On")
             session = URLSession.init(configuration: configuration, delegate: sessionDelegate, delegateQueue: nil)
         } else {
-            Debug.message("Pinning off")
+//            Debug.message("Pinning off")
             session = URLSession.init(configuration: configuration, delegate: nil, delegateQueue: nil)
         }
     }
